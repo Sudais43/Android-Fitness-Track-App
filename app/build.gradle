@@ -1,0 +1,84 @@
+plugins {
+    alias(libs.plugins.android.application)
+}
+
+android {
+    namespace 'com.example.fitnesstrackapp'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.fitnesstrackapp"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+ext {
+    parseVersion = "4.3.0"
+}
+dependencies {
+
+    implementation libs.parse.v430
+//    implementation libs.parse.parse
+
+    implementation libs.parceler.api
+    implementation libs.annotation
+    implementation libs.lifecycle.livedata.ktx
+    implementation libs.lifecycle.viewmodel.ktx
+    annotationProcessor libs.parceler
+
+    implementation libs.cardview
+
+    implementation libs.glide
+
+    annotationProcessor libs.compiler
+    implementation libs.animatoo
+
+//    implementation libs.material.v100
+    implementation libs.gson
+    implementation libs.retrofit
+    implementation libs.converter.gson
+
+    implementation libs.parse
+    implementation libs.logging.interceptor // for logging API calls to LogCat
+
+    implementation libs.core
+
+    implementation files('libs/android-youtube-player-10.0.5.jar')
+    implementation 'com.github.PierfrancescoSoffritti.android-youtube-player:core:10.0.5'
+
+
+
+
+
+
+    testImplementation libs.junit
+
+    implementation libs.legacy.support.v4
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+}
